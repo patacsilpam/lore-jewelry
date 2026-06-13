@@ -21,55 +21,6 @@ function TikTokIcon({ className }: { className?: string }) {
 export function FooterSections() {
   return (
     <>
-      {/* Map / Shops Section */}
-      <section className="bg-white relative flex justify-center mt-20 mb-32">
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center top-[-100px]">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/001/198/050/non_2x/dotted-world-map-png.png"
-            alt="World Map"
-            className="w-[1100px] object-contain opacity-10"
-          />
-        </div>
-
-        <div className="w-[90%] max-w-[600px] relative z-10 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-          <div className="p-6 md:p-16 flex flex-col justify-center">
-            <h3 className="text-2xl font-normal mb-8 tracking-wide">Shops</h3>
-            <p className="text-sm text-gray-600 mb-10 leading-relaxed max-w-[400px]">
-              With physical locations in Malaysia, LORE is committed to bringing
-              the best ethical jewelry to customers around the world.
-            </p>
-            <div className="flex border border-gray-300 mb-4 h-12 overflow-hidden">
-              <div className="flex items-center px-2 md:px-4 text-gray-400">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search"
-                className="flex-1 w-0 px-2 text-sm outline-none placeholder-gray-400 font-medium"
-              />
-              <button className="bg-[#2b2b2b] text-white px-4 md:px-8 text-sm font-bold tracking-wider hover:bg-black transition-colors shrink-0">
-                Search
-              </button>
-            </div>
-            <button className="border border-gray-300 text-sm font-bold tracking-widest px-8 py-3.5 hover:border-black hover:text-black transition-colors flex items-center justify-center w-full bg-white text-gray-600">
-              Store Locator
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* EYE CAMP (CSR) */}
       {/* <section className="relative h-[480px] flex items-center overflow-hidden">
         <img
@@ -206,12 +157,12 @@ export function FooterSections() {
                 </li>
 
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/size-guide"
                     className="hover:text-white transition-colors duration-300"
                   >
                     Size Guide
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -231,16 +182,6 @@ export function FooterSections() {
                     Brand Story
                   </Link>
                 </li>
-
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-white transition-colors duration-300"
-                  >
-                    Shops
-                  </a>
-                </li>
-
                 <li>
                   <Link
                     href="/after-sales"
@@ -307,15 +248,30 @@ export function FooterSections() {
                 CONTACT US
               </h4>
 
-              <p className="text-3xl font-light tracking-[0.08em] text-white mb-4">
-                0917-701-6030
-              </p>
-
-              <p className="text-sm text-gray-400 mb-2">Monday to Friday</p>
-
-              <p className="text-sm text-gray-300 leading-relaxed">
-                Operating Hours 9:30 - 12:00 and 13:00 - 18:30
-              </p>
+              <div className="space-y-4">
+                <a
+                  href={socialLinks.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium tracking-wider">
+                    Shop on TikTok
+                  </span>
+                </a>
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium tracking-wider">
+                    Follow on Instagram
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
 

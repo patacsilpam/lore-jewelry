@@ -4,6 +4,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { earrings, rings } from "../data/products";
 import Image from "next/image";
 import { cinzel, raleway } from "../utils/fonts";
+import { socialLinks } from "../data/site";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -145,8 +146,8 @@ export function Bestsellers() {
               item.price == null
                 ? null
                 : typeof item.price === "number"
-                  ? `RM ${item.price.toFixed(2)}`
-                  : item.price;
+                  ? `RM ${item.price.toFixed(2)}+`
+                  : `${item.price} ${item.hasTwoCTs ? "+" : ""}`;
             const key = "id" in item ? item.id : `${item.name}-${index}`;
             const materialLabel =
               "material" in item ? item.material : "LORE | MOISSANITE";
@@ -174,13 +175,13 @@ export function Bestsellers() {
                     {materialLabel}
                   </p>
                   <h3
-                    className={`${raleway.className} text-sm font-medium uppercase tracking-widest text-gray-800`}
+                    className={`${raleway.className} text-base font-medium uppercase tracking-widest text-gray-800`}
                   >
                     {item.name}
                   </h3>
                   {priceLabel && (
                     <p
-                      className={`${cinzel.className} text-base text-gray-800 font-semibold tracking-wide`}
+                      className={`${cinzel.className} text-xl text-gray-800 font-semibold tracking-wide`}
                     >
                       {priceLabel}
                     </p>
@@ -235,17 +236,14 @@ export function Bestsellers() {
         )}
 
         <div className="text-center">
-          <button
-            className={`${raleway.className} uppercase border-2 border-gray-900 text-xs font-semibold tracking-wider px-12 py-3 hover:bg-gray-800 hover:text-white transition-all duration-300`}
-            onClick={() => {
-              document
-                .getElementById("bestsellers")
-                ?.scrollIntoView({ behavior: "smooth" });
-              handleTabChange("All");
-            }}
+          <a
+            href={socialLinks.tiktok}
+            target="_blank"
+            rel="noreferrer"
+            className={`${raleway.className} inline-block uppercase border-2 border-gray-900 text-xs font-semibold tracking-wider px-12 py-3 hover:bg-gray-800 hover:text-white transition-all duration-300`}
           >
-            See Bestseller Ranking
-          </button>
+            Shop on TikTok Shop
+          </a>
         </div>
       </div>
     </section>
