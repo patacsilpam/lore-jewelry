@@ -48,12 +48,13 @@ export function Header() {
         <nav className="hidden md:flex flex-1 justify-center items-center space-x-12 lg:space-x-16">
           {/* Shop mega-menu */}
           <div className="relative group">
-            <button
-              className={`${raleway.className} flex items-center gap-1 text-[14px] font-semibold tracking-widest text-gray-800 hover:text-gray-500 transition-colors`}
+            <Link
+              href="/#bestsellers"
+              className={`${raleway.className} flex items-center gap-1 text-[14px] font-semibold tracking-widest text-gray-800 hover:text-gray-500 transition-colors cursor-pointer`}
             >
               Shop
               <ChevronDown className="w-4 h-4 stroke-[1.5] transition-transform group-hover:rotate-180" />
-            </button>
+            </Link>
 
             <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 absolute left-1/2 -translate-x-1/2 top-full pt-6">
               <div className="bg-white border border-gray-200 shadow-xl p-8 flex gap-12 min-w-[440px]">
@@ -64,15 +65,29 @@ export function Header() {
                     >
                       {section.title}
                     </p>
-                    <ul className="space-y-3">
+                    <ul className="space-y-4">
                       {section.groups.map((group) => (
                         <li key={group.label}>
                           <Link
                             href={group.href}
-                            className={`${raleway.className} block text-sm text-gray-600 hover:text-black transition-colors`}
+                            className={`${raleway.className} block text-sm font-bold text-gray-800 hover:text-black transition-colors mb-2`}
                           >
                             {group.label}
                           </Link>
+                          {group.items && (
+                            <ul className="pl-4 space-y-2 border-l border-gray-100">
+                              {group.items.map((item) => (
+                                <li key={item.label}>
+                                  <Link
+                                    href={item.href}
+                                    className={`${raleway.className} block text-[13px] text-gray-500 hover:text-black transition-colors`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -146,16 +161,31 @@ export function Header() {
                 >
                   {section.title}
                 </p>
-                <ul className="space-y-3 pl-1">
+                <ul className="space-y-4 pl-1">
                   {section.groups.map((group) => (
                     <li key={group.label}>
                       <Link
                         href={group.href}
-                        className={`${raleway.className} block text-sm text-gray-600 hover:text-black transition-colors`}
+                        className={`${raleway.className} block text-sm font-bold text-gray-800 hover:text-black transition-colors mb-2`}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {group.label}
                       </Link>
+                      {group.items && (
+                        <ul className="pl-4 space-y-2 border-l border-gray-100">
+                          {group.items.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                className={`${raleway.className} block text-[13px] text-gray-500 hover:text-black transition-colors`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   ))}
                 </ul>
